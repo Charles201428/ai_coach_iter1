@@ -84,4 +84,4 @@ const { answer } = await res.json();
 
 
 Thank you!  
-For any questions or support, reach out to the backend team.
+For any questions or support, reach out to me.
