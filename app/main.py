@@ -15,18 +15,17 @@ from .models import generate_response
 app = FastAPI(title="AI Coach API")
 
 # CORS setup: allow your front-end origin (or use ["*"] for local testing)
-FRONTEND_URL = os.getenv("FRONTEND_URL", "*")
+
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",        # Vite/React dev server
-        "https://big-site.dev",         # staging
-        "https://big-site.com"          # prod
-    ],
+    allow_origins=["*"],        # <-- allow everything, for now
+    allow_methods=["GET","POST","OPTIONS"],
     allow_headers=["*"],
-    allow_methods=["GET", "POST"]
 )
+
+
+
 
 class ChatRequest(BaseModel):
     question: str
